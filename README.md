@@ -68,7 +68,7 @@ e a API ira rodar. Caso não queira exportar variaveis de ambiente, utilize:
 
 <https://gvcapi.herokuapp.com/search_video?q=ola>
 
-<https://gvcapi.herokuapp.com/search_video?q=python&lang=en?
+<https://gvcapi.herokuapp.com/search_video?q=python&lang=en?>
 
 <https://gvcapi.herokuapp.com/search_video?q=java&lang=en&max_results=200>
 
