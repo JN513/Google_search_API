@@ -17,6 +17,8 @@ def get_all():
         int(request.args.get("max_results")) if request.args.get("max_results") else 30
     )
 
+    qtd = qtd if qtd <= 100 else 100
+
     results = [c for c in search(f"{payload}", stop=qtd, lang=lang)]
 
     return jsonify({"sucess": True, "links": results})
@@ -33,6 +35,8 @@ def get_videos():
     qtd = (
         int(request.args.get("max_results")) if request.args.get("max_results") else 30
     )
+
+    qtd = qtd if qtd <= 100 else 100
 
     results = [
         c for c in search(f"'{payload}' youtube", stop=30, lang=lang) if "watch?v=" in c
