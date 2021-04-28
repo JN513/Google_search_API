@@ -13,8 +13,11 @@ def get_all():
         return jsonify({"sucess": False, "error": "Queryset nao fornecido"})
 
     lang = request.args.get("lang") if request.args.get("q") else "pt"
+    qtd = (
+        int(request.args.get("max_results")) if request.args.get("max_results") else 30
+    )
 
-    results = [c for c in search(f"{payload}", stop=30, lang=lang)]
+    results = [c for c in search(f"{payload}", stop=qtd, lang=lang)]
 
     return jsonify({"sucess": True, "links": results})
 
@@ -27,13 +30,16 @@ def get_videos():
         return jsonify({"sucess": False, "error": "Queryset nao fornecido"})
 
     lang = request.args.get("lang") if request.args.get("q") else "pt"
+    qtd = (
+        int(request.args.get("max_results")) if request.args.get("max_results") else 30
+    )
 
     results = [
         c for c in search(f"'{payload}' youtube", stop=30, lang=lang) if "watch?v=" in c
     ]
 
-    return jsonify({"sucess": True, "links": results})
+    return jsonify({"sucess": True, "links": results[:qtd]})
 
 
 if os.environ.get("ENV") == "development" and __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", debug=True)
