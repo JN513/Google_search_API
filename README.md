@@ -53,7 +53,8 @@ Para exportar no Windows utilize:
 Depois disso utilize:
 ``` python gvsearch.py ```
 
-e a API ira rodar.
+e a API ira rodar. Caso não queira exportar variaveis de ambiente, utilize:
+``` gunicorn gvsearch:app ```
 
 ## Problemas e sugestões
 
