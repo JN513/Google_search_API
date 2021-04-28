@@ -13,11 +13,11 @@ A API contem as seguintes rotas:
 
 como parâmetros é possivel utilizar:
 
-| Parâmetro | Tipo de valor | Default | Obrigatório |
-| -------- | ------------- | ---------- | --------- |
-| q | str | null | Sim |
-| lang | str | pt | Não |
-| max_results | int  | 30 | Não |
+| Parâmetro | Tipo de valor | Default | Obrigatório | Descrição |
+| -------- | ------------- | ---------- | --------- | --------- |
+| q | str | null | Sim | Termo utilizado na pesquisa |
+| lang | str | pt | Não | Linguagem da pesquisa |
+| max_results | int  | 30 | Não | Limite de resultados |
 
 
 ## Dependencias
@@ -63,6 +63,14 @@ Depois disso utilize:
 
 e a API ira rodar. Caso não queira exportar variaveis de ambiente, utilize:
 ``` gunicorn gvsearch:app ```
+
+## Exemplos de requisições
+
+<https://gvcapi.herokuapp.com/search_video?q=ola>
+
+<https://gvcapi.herokuapp.com/search_video?q=python&lang=en?
+
+<https://gvcapi.herokuapp.com/search_video?q=java&lang=en&max_results=200>
 
 ## Problemas e sugestões
 
