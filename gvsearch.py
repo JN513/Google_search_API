@@ -10,7 +10,7 @@ def get_all():
     payload = request.args.get("q")
 
     if not payload:
-        return jsonify({"sucess": False, "error": "Q nao fornecido"})
+        return jsonify({"sucess": False, "error": "Queryset nao fornecido"})
 
     lang = request.args.get("lang") if request.args.get("q") else "pt"
 
@@ -24,7 +24,7 @@ def get_videos():
     payload = request.args.get("q")
 
     if not payload:
-        return jsonify({"sucess": False, "error": "Q não fornecido"})
+        return jsonify({"sucess": False, "error": "Queryset nao fornecido"})
 
     lang = request.args.get("lang") if request.args.get("q") else "pt"
 
