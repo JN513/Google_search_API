@@ -8,7 +8,7 @@ A API contem as seguintes rotas:
 
 | URL | Métodos | Parâmetros | Descrição |
 | -------- | ------------- | ---------- | --------- |
-| `/search_video` | GET | q | Pesquisa videos no google com base no queryset passado e retorna as URLs dos mesmos|
+| `/search_video` | GET | q | Pesquisa videos no google com base no queryset passado e retorna as URLs dos mesmos |
 | `/search_all` | GET | q | Pesquisa no google com base no queryset passado e retorna as URLs dos resultados |
 
 

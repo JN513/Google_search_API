@@ -17,7 +17,6 @@ def get_all():
 
 @app.route("/search_video", methods=["GET"])
 def get_videos():
-    results = []
     payload = request.args.get("q")
 
     if payload == None:
