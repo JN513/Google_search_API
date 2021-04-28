@@ -35,6 +35,5 @@ def get_videos():
     return jsonify({"sucess": True, "links": results})
 
 
-if os.environ.get("ENV") == "development":
-    if __name__ == "__main__":
-        app.run(host="0.0.0.0")
+if os.environ.get("ENV") == "development" and __name__ == "__main__":
+    app.run(host="0.0.0.0")
