@@ -6,10 +6,18 @@ API desenvolvida em Flask com o Intuito de realizar buscas no google e retornar 
 
 A API contem as seguintes rotas:
 
-| URL | Métodos | Parâmetros | Descrição |
+| URL | Métodos | Descrição |
 | -------- | ------------- | ---------- | --------- |
-| `/search_video` | GET | q | Pesquisa videos no google com base no queryset passado e retorna as URLs dos mesmos |
-| `/search_all` | GET | q | Pesquisa no google com base no queryset passado e retorna as URLs dos resultados |
+| `/search_video` | GET | Pesquisa videos no google com base no queryset passado e retorna as URLs dos mesmos |
+| `/search_all` | GET | Pesquisa no google com base no queryset passado e retorna as URLs dos resultados |
+
+como parâmetros é possivel utilizar:
+
+| Parâmetro | Tipo de valor | Default | Obrigatório |
+| -------- | ------------- | ---------- | --------- |
+| q | str | null | Sim |
+| lang | str | pt | Não |
+| max_results | int  | 30 | Não |
 
 
 ## Dependencias
