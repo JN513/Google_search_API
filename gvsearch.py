@@ -39,7 +39,9 @@ def get_videos():
     qtd = qtd if qtd <= 100 else 100
 
     results = [
-        c for c in search(f"'{payload}' youtube", stop=qtd if qtd > 30 else 30, lang=lang) if "watch?v=" in c
+        c
+        for c in search(f"'{payload}' youtube", stop=qtd if qtd > 30 else 30, lang=lang)
+        if "watch?v=" in c
     ]
 
     return jsonify({"sucess": True, "links": results[:qtd]})
