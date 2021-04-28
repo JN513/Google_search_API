@@ -11,7 +11,9 @@ def get_all():
     if payload == None:
         return jsonify({"sucess": False, "error":"Q nao fornecido"})
 
-    results = [c for c in search(f"{payload}", stop=30)]
+    lang = request.args.get("lang") if request.args.get("q") else "pt"
+
+    results = [c for c in search(f"{payload}", stop=30, lang=lang)]
 
     return jsonify({"sucess":True, "links":results})
 
@@ -22,7 +24,9 @@ def get_videos():
     if payload == None:
         return jsonify({"sucess": False, "error":"Q não fornecido"})
 
-    results = [c for c in search(f"'{payload}' youtube", stop=30) if "watch?v=" in c]
+    lang = request.args.get("lang") if request.args.get("q") else "pt"
+
+    results = [c for c in search(f"'{payload}' youtube", stop=30, lang=lang) if "watch?v=" in c]
 
     return jsonify({"sucess":True, "links":results})
 
