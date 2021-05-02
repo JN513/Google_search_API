@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, redirect
 from googlesearch import search
 from bs4 import BeautifulSoup
 import os
@@ -70,6 +70,11 @@ def get_news():
         news.append(dados)
 
     return jsonify({"sucess":True, "news":news})
+
+
+@app.route("/")
+def index():
+    return redirect("https://github.com/JN513/Google_search_API")
 
 if os.environ.get("ENV") == "development" and __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
