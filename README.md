@@ -10,6 +10,7 @@ A API contem as seguintes rotas:
 | -------- | ------------- | --------- |
 | `/search_video` | GET | Pesquisa videos no google com base no queryset passado e retorna as URLs dos mesmos |
 | `/search_all` | GET | Pesquisa no google com base no queryset passado e retorna as URLs dos resultados |
+| `/search_news` | GET | Pesquisa as ultimas noticias no Google News |
 
 como parâmetros é possivel utilizar:
 
