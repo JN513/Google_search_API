@@ -1,4 +1,4 @@
-# Google_video_search_API
+# Google_search_API
 
 API desenvolvida em Flask com o Intuito de realizar buscas no google e retornar as URLs em formato Json.
 
