@@ -49,7 +49,7 @@ def get_videos():
     return jsonify({"sucess": True, "links": results[:qtd]})
 
 
-@app.route("/search_news", methods=["GET"])
+@app.route("/get_news", methods=["GET"])
 def get_news():
     site = requests.get("https://news.google.com/rss?hl=pt-BR&gl=BR&ceid=BR:pt-419")
     noticias = BeautifulSoup(site.text, "html.parser")
