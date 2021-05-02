@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from googlesearch import search
+from bs4 import BeautifulSoup
 import os
+import requests
 
 app = Flask(__name__)
 
@@ -12,7 +14,7 @@ def get_all():
     if not payload:
         return jsonify({"sucess": False, "error": "Queryset nao fornecido"})
 
-    lang = request.args.get("lang") if request.args.get("q") else "pt"
+    lang = request.args.get("lang") if request.args.get("lang") else "pt"
     qtd = (
         int(request.args.get("max_results")) if request.args.get("max_results") else 30
     )
@@ -31,7 +33,7 @@ def get_videos():
     if not payload:
         return jsonify({"sucess": False, "error": "Queryset nao fornecido"})
 
-    lang = request.args.get("lang") if request.args.get("q") else "pt"
+    lang = request.args.get("lang") if request.args.get("lang") else "pt"
     qtd = (
         int(request.args.get("max_results")) if request.args.get("max_results") else 30
     )
@@ -46,6 +48,28 @@ def get_videos():
 
     return jsonify({"sucess": True, "links": results[:qtd]})
 
+
+@app.route("/search_news", methods=["GET"])
+def get_news():
+    site = requests.get("https://news.google.com/rss?hl=pt-BR&gl=BR&ceid=BR:pt-419")
+    noticias = BeautifulSoup(site.text, "html.parser")
+
+    qtd = (
+        int(request.args.get("max_results")) if request.args.get("max_results") else 5
+    )
+
+    news = list()
+
+    for item in noticias.findAll("item")[:qtd]:
+        dados = {
+            "title":item.title.text,
+            "description":BeautifulSoup(item.description.text, "lxml").text,
+            "pub_date":item.pubdate.text,
+        }
+
+        news.append(dados)
+
+    return jsonify({"sucess":True, "news":news})
 
 if os.environ.get("ENV") == "development" and __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
