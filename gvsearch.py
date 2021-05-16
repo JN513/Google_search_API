@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify, redirect
 from googlesearch import search
 from bs4 import BeautifulSoup
+from flask_cors import CORS
 import os
 import requests
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route("/search_all", methods=["GET"])

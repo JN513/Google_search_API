@@ -5,6 +5,7 @@ certifi==2020.12.5
 chardet==4.0.0
 click==7.1.2
 Flask==1.1.2
+Flask-Cors==3.0.10
 google==3.0.0
 gunicorn==20.1.0
 idna==2.10
@@ -16,6 +17,7 @@ mypy-extensions==0.4.3
 pathspec==0.8.1
 regex==2021.4.4
 requests==2.25.1
+six==1.16.0
 soupsieve==2.2.1
 toml==0.10.2
 urllib3==1.26.4
