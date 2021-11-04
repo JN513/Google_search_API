@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, redirect
 from googlesearch import search
 from bs4 import BeautifulSoup
+from googletrans import Translator, LANGUAGES, LANGCODES
 from flask_cors import CORS
 import os
 import requests
@@ -81,6 +82,37 @@ def get_news():
 
     return jsonify({"sucess": True, "news": news})
 
+
+@app.route("/translate", methods=["GET", "POST"])
+def translate():
+    payload = request.args.get("q") or request.form.get("q")
+
+    if not payload:
+        return jsonify({"sucess": False, "error": "Queryset nao fornecido"})
+
+    lang = request.args.get("lang") if request.args.get("lang") else "pt"
+    source = request.args.get("source") if request.args.get("source") else "en"
+
+    if LANGCODES.get(lang):
+        return jsonify({"sucess": False, "error": "Idioma de saida nao suportado"})
+    
+    if LANGCODES.get(source):
+        return jsonify({"sucess": False, "error": "Idioma de entrada nao suportado"})
+
+    translator = Translator()
+    translation = translator.translate(payload, dest=lang, src=source)
+
+    return jsonify({"sucess": True, "translation": translation.text})
+
+
+@app.route("/get_languages", methods=["GET"])
+def get_languages():
+    return jsonify({"sucess": True, "languages": LANGUAGES})
+
+
+@app.route("/get_lang_codes", methods=["GET"])
+def get_lang_codes():
+    return jsonify({"sucess": True, "lang_codes": LANGCODES})
 
 @app.route("/")
 def index():
