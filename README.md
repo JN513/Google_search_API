@@ -19,6 +19,7 @@ como parâmetros é possivel utilizar:
 | q | str | null | Sim | Termo utilizado na pesquisa |
 | lang | str | pt | Não | Linguagem da pesquisa |
 | max_results | int  | 30 | Não | Limite de resultados |
+| to_iframe | bool | false/0 | Não | Converte o link do youtube para um link pronto para ser usado em um iframe, só funciona na rota search_video. |
 
 
 ## Dependencias
