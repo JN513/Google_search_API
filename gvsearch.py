@@ -53,7 +53,10 @@ def get_videos():
 
     if to_iframe:
         for i in range(len(results)):
-            results[i] = results[i].replace("watch?v=", "embed/")
+            if "watch?v=" in results[i]:
+                results[i] = results[i].replace("watch?v=", "embed/")
+            elif "youtu.be/" in results[i]:
+                results[i] = results[i].replace("youtu.be/", "www.youtube.com/embed/")
 
     return jsonify({"sucess": True, "links": results[:qtd]})
 
