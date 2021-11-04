@@ -41,12 +41,19 @@ def get_videos():
     )
 
     qtd = qtd if qtd <= 100 else 100
+    to_iframe = (
+        bool(request.args.get("to_iframe")) if request.args.get("to_iframe") else False
+    )
 
     results = [
         c
         for c in search(f"'{payload}' youtube", stop=qtd if qtd > 30 else 30, lang=lang)
-        if "watch?v=" in c
+        if "watch?v=" in c or "youtu.be/" in c
     ]
+
+    if to_iframe:
+        for i in range(len(results)):
+            results[i] = results[i].replace("watch?v=", "embed/")
 
     return jsonify({"sucess": True, "links": results[:qtd]})
 
