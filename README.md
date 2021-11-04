@@ -11,6 +11,10 @@ A API contem as seguintes rotas:
 | `/search_video` | GET | Pesquisa videos no google com base no queryset passado e retorna as URLs dos mesmos |
 | `/search_all` | GET | Pesquisa no google com base no queryset passado e retorna as URLs dos resultados |
 | `/get_news` | GET | Pesquisa as ultimas noticias no Google News |
+| `/translate` | GET, POST | Traduz um texto de uma linguagem para outra |
+| `/get_languages` | GET | Retorna todas as linguagens suportadas |
+| `/get_lang_codes` | GET | Retorna o codigo de todas as linguagens suportadas |
+| `/` | GET | Redireciona para o repositorio da API no Github |
 
 como parâmetros é possivel utilizar:
 
@@ -19,7 +23,9 @@ como parâmetros é possivel utilizar:
 | q | str | null | Sim | Termo utilizado na pesquisa |
 | lang | str | pt | Não | Linguagem da pesquisa |
 | max_results | int  | 30 | Não | Limite de resultados |
-| to_iframe | bool | false/0 | Não | Converte o link do youtube para um link pronto para ser usado em um iframe, só funciona na rota search_video. |
+| to_iframe | bool | false/0 | Não | Converte o link do youtube para um link pronto para ser usado em um iframe, só funciona na rota *search_video*. |
+| source | str | en | Linguagem original do texto que sera traduzido, só funciona na rota *translate*. |
+| lang | str | pt | Linguagem para qual o texto sera traduzido, só funciona na rota *translate*. |
 
 
 ## Dependencias
