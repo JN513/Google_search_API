@@ -24,8 +24,8 @@ como parâmetros é possivel utilizar:
 | lang | str | pt | Não | Linguagem da pesquisa |
 | max_results | int  | 30 | Não | Limite de resultados |
 | to_iframe | bool | false/0 | Não | Converte o link do youtube para um link pronto para ser usado em um iframe, só funciona na rota *search_video*. |
-| source | str | en | Linguagem original do texto que sera traduzido, só funciona na rota *translate*. |
-| lang | str | pt | Linguagem para qual o texto sera traduzido, só funciona na rota *translate*. |
+| source | str | en | Não | Linguagem original do texto que sera traduzido, só funciona na rota *translate*. |
+| lang | str | pt | Não | Linguagem para qual o texto sera traduzido, só funciona na rota *translate*. |
 
 
 ## Dependencias
