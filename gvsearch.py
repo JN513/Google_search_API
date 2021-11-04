@@ -95,7 +95,7 @@ def translate():
 
     if LANGCODES.get(lang):
         return jsonify({"sucess": False, "error": "Idioma de saida nao suportado"})
-    
+
     if LANGCODES.get(source):
         return jsonify({"sucess": False, "error": "Idioma de entrada nao suportado"})
 
@@ -113,6 +113,7 @@ def get_languages():
 @app.route("/get_lang_codes", methods=["GET"])
 def get_lang_codes():
     return jsonify({"sucess": True, "lang_codes": LANGCODES})
+
 
 @app.route("/")
 def index():
