@@ -34,6 +34,10 @@ Para utilizar a API sera necessario ter o Python instalado e as seguintes Biblio
 
 - Flask
 - Google
+- googletrans
+- bs4
+- flask_cors
+- requests
 
 ## Como instalar
 
