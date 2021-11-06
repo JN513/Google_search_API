@@ -14,7 +14,7 @@ A API contem as seguintes rotas:
 | `/translate` | GET, POST | Traduz um texto de uma linguagem para outra | lang: str, source: str |
 | `/get_languages` | GET | Retorna todas as linguagens suportadas | Null |
 | `/get_lang_codes` | GET | Retorna o codigo de todas as linguagens suportadas | Null |
-| `/get_finances` | GET | Retorna o valor da cotação | f: str, t: str |
+| `/get_finances` | GET | Retorna o valor da cotação | f: str, t: str, r: int |
 | `/` | GET | Redireciona para o repositorio da API no Github | Null |
 
 como parâmetros é possivel utilizar:
@@ -29,6 +29,7 @@ como parâmetros é possivel utilizar:
 | lang | str | pt | Não | Linguagem para qual o texto sera traduzido, só funciona na rota *translate*. |
 | f | str | USD | Não | Moeda base da conversão, só funciona na rota *get_finances* |
 | t | str | BRL | Não | Moeda para qual sera realizado a conversão, só funciona na rota *get_finances* |
+| r | int | 2 | Não | Quantidade de casas após a virgula, só funcionana rota *get_finances* |
 
 
 ## Dependencias
