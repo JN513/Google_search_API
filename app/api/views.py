@@ -5,6 +5,7 @@ from googletrans import Translator, LANGUAGES, LANGCODES
 from . import api
 import requests
 
+
 @api.route("/search_all", methods=["GET"])
 def get_all():
     payload = request.args.get("q")
@@ -133,4 +134,3 @@ def cotacao():
 @api.route("/")
 def index():
     return redirect("https://github.com/JN513/Google_search_API")
-
