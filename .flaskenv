@@ -1,0 +1,2 @@
+FLASK_APP=gvsearch.py
+FLASK_ENV=development
