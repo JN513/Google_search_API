@@ -119,6 +119,7 @@ def get_lang_codes():
 def cotacao():
     f = request.args.get("f") if request.args.get("f") else "USD"
     t = request.args.get("t") if request.args.get("t") else "BRL"
+    r = int(request.args.get("r")) if request.args.get("r") else 2
 
     html = requests.get(f"https://www.google.com/finance/quote/{f}-{t}")
     soup = BeautifulSoup(html.text, "html.parser")
@@ -128,7 +129,7 @@ def cotacao():
         valor = valor.replace(",", "")
 
         valor = float(valor)
-        return jsonify({"sucess": True, "valor": round(valor, 2)})
+        return jsonify({"sucess": True, "valor": round(valor, r)})
 
     except Exception as e:
         return jsonify({"sucess": False, "error": str(e)})
