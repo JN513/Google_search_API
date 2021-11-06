@@ -114,18 +114,19 @@ def get_languages():
 def get_lang_codes():
     return jsonify({"sucess": True, "lang_codes": LANGCODES})
 
+
 @app.route("/get_finances/fr=<f>&to=<t>", methods=["GET"])
 def cotacao(f, t):
     html = requests.get(f"https://www.google.com/finance/quote/{f}-{t}")
-    soup = BeautifulSoup(html.text, 'html.parser')
+    soup = BeautifulSoup(html.text, "html.parser")
     valor = soup.select('[class="YMlKec fxKbKc"]')
     try:
         valor = float(valor[0].text)
         result = jsonify({"sucess": True, "valor": round(valor, 2)})
         return result
     except:
-        return ({"error": "Ocorreu um erro"})
-    
+        return {"error": "Ocorreu um erro"}
+
 
 @app.route("/")
 def index():
