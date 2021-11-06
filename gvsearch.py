@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, redirect
+from flask import Flask, json, request, jsonify, redirect
 from googlesearch import search
 from bs4 import BeautifulSoup
 from googletrans import Translator, LANGUAGES, LANGCODES
@@ -114,6 +114,18 @@ def get_languages():
 def get_lang_codes():
     return jsonify({"sucess": True, "lang_codes": LANGCODES})
 
+@app.route("/get_finances/fr=<f>&to=<t>", methods=["GET"])
+def cotacao(f, t):
+    html = requests.get(f"https://www.google.com/finance/quote/{f}-{t}")
+    soup = BeautifulSoup(html.text, 'html.parser')
+    valor = soup.select('[class="YMlKec fxKbKc"]')
+    try:
+        valor = float(valor[0].text)
+        result = jsonify({"sucess": True, "valor": round(valor, 2)})
+        return result
+    except:
+        return ({"error": "Ocorreu um erro"})
+    
 
 @app.route("/")
 def index():
