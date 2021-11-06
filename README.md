@@ -14,6 +14,7 @@ A API contem as seguintes rotas:
 | `/translate` | GET, POST | Traduz um texto de uma linguagem para outra |
 | `/get_languages` | GET | Retorna todas as linguagens suportadas |
 | `/get_lang_codes` | GET | Retorna o codigo de todas as linguagens suportadas |
+| `/get_finances` | GET | Retorna o valor da cotação |
 | `/` | GET | Redireciona para o repositorio da API no Github |
 
 como parâmetros é possivel utilizar:
@@ -83,6 +84,8 @@ e a API ira rodar. Caso não queira exportar variaveis de ambiente, utilize:
 <https://gvcapi.herokuapp.com/search_video?q=python&lang=en?>
 
 <https://gvcapi.herokuapp.com/search_video?q=java&lang=en&max_results=200>
+
+<https://gvcapi.herokuapp.com/get_finances/fr=USD&t=BRL>
 
 ## Problemas e sugestões
 
