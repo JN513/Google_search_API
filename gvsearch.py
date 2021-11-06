@@ -115,8 +115,11 @@ def get_lang_codes():
     return jsonify({"sucess": True, "lang_codes": LANGCODES})
 
 
-@app.route("/get_finances/fr=<f>&to=<t>", methods=["GET"])
-def cotacao(f, t):
+@app.route("/get_finances/", methods=["GET"])
+def cotacao():
+    f = request.args.get("f") if request.args.get("f") else "USD"
+    t = request.args.get("t") if request.args.get("t") else "BRL"
+
     html = requests.get(f"https://www.google.com/finance/quote/{f}-{t}")
     soup = BeautifulSoup(html.text, "html.parser")
     valor = soup.select('[class="YMlKec fxKbKc"]')
