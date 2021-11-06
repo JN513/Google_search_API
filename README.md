@@ -8,14 +8,14 @@ A API contem as seguintes rotas:
 
 | URL | Métodos | Descrição | Parâmentros |
 | -------- | ------------- | --------- | -------------|
-| `/search_video` | GET | Pesquisa videos no google com base no queryset passado e retorna as URLs dos mesmos | q: str, lang: str, qtd: int |
-| `/search_all` | GET | Pesquisa no google com base no queryset passado e retorna as URLs dos resultados | q: str, lang: str, qtd: int  |
-| `/get_news` | GET | Pesquisa as ultimas noticias no Google News | qtd: int |
-| `/translate` | GET, POST | Traduz um texto de uma linguagem para outra | lang: str, source: str |
-| `/get_languages` | GET | Retorna todas as linguagens suportadas | Null |
-| `/get_lang_codes` | GET | Retorna o codigo de todas as linguagens suportadas | Null |
-| `/get_finances` | GET | Retorna o valor da cotação | f: str, t: str, r: int |
-| `/` | GET | Redireciona para o repositorio da API no Github | Null |
+| `/api/search_video` | GET | Pesquisa videos no google com base no queryset passado e retorna as URLs dos mesmos | q: str, lang: str, qtd: int |
+| `/api/search_all` | GET | Pesquisa no google com base no queryset passado e retorna as URLs dos resultados | q: str, lang: str, qtd: int  |
+| `/api/get_news` | GET | Pesquisa as ultimas noticias no Google News | qtd: int |
+| `/api/translate` | GET, POST | Traduz um texto de uma linguagem para outra | lang: str, source: str |
+| `/api/get_languages` | GET | Retorna todas as linguagens suportadas | Null |
+| `/api/get_lang_codes` | GET | Retorna o codigo de todas as linguagens suportadas | Null |
+| `/api/get_finances` | GET | Retorna o valor da cotação | f: str, t: str, r: int |
+| `/api/` | GET | Redireciona para o repositorio da API no Github | Null |
 
 como parâmetros é possivel utilizar:
 
@@ -82,19 +82,19 @@ e a API ira rodar. Caso não queira exportar variaveis de ambiente, utilize:
 
 ## Exemplos de requisições
 
-<https://gvcapi.herokuapp.com/search_video?q=ola>
+<https://gvcapi.herokuapp.com/api/search_video?q=ola>
 
-<https://gvcapi.herokuapp.com/search_video?q=ola&to_iframe=true>
+<https://gvcapi.herokuapp.com/api/search_video?q=ola&to_iframe=true>
 
-<https://gvcapi.herokuapp.com/search_video?q=python&lang=en?>
+<https://gvcapi.herokuapp.com/api/search_video?q=python&lang=en?>
 
-<https://gvcapi.herokuapp.com/search_video?q=java&lang=en&max_results=200>
+<https://gvcapi.herokuapp.com/api/search_video?q=java&lang=en&max_results=200>
 
-<https://gvcapi.herokuapp.com/get_news>
+<https://gvcapi.herokuapp.com/api/get_news>
 
-<https://gvcapi.herokuapp.com/translate?source=en&lang=pt>
+<https://gvcapi.herokuapp.com/api/translate?source=en&lang=pt>
 
-<https://gvcapi.herokuapp.com/get_finances/?f=USD&t=BRL>
+<https://gvcapi.herokuapp.com/api/get_finances/?f=USD&t=BRL>
 
 ## Problemas e sugestões
 
