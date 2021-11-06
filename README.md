@@ -6,23 +6,23 @@ API desenvolvida em Flask com o Intuito de realizar buscas no google e retornar 
 
 A API contem as seguintes rotas:
 
-| URL | Métodos | Descrição |
-| -------- | ------------- | --------- |
-| `/search_video` | GET | Pesquisa videos no google com base no queryset passado e retorna as URLs dos mesmos |
-| `/search_all` | GET | Pesquisa no google com base no queryset passado e retorna as URLs dos resultados |
-| `/get_news` | GET | Pesquisa as ultimas noticias no Google News |
-| `/translate` | GET, POST | Traduz um texto de uma linguagem para outra |
-| `/get_languages` | GET | Retorna todas as linguagens suportadas |
-| `/get_lang_codes` | GET | Retorna o codigo de todas as linguagens suportadas |
-| `/get_finances` | GET | Retorna o valor da cotação |
-| `/` | GET | Redireciona para o repositorio da API no Github |
+| URL | Métodos | Descrição | Parâmentros |
+| -------- | ------------- | --------- | -------------|
+| `/search_video` | GET | Pesquisa videos no google com base no queryset passado e retorna as URLs dos mesmos | q: str, lang: str, qtd: int |
+| `/search_all` | GET | Pesquisa no google com base no queryset passado e retorna as URLs dos resultados | q: str, lang: str, qtd: int  |
+| `/get_news` | GET | Pesquisa as ultimas noticias no Google News | qtd: int |
+| `/translate` | GET, POST | Traduz um texto de uma linguagem para outra | lang: str, source: str |
+| `/get_languages` | GET | Retorna todas as linguagens suportadas | Null |
+| `/get_lang_codes` | GET | Retorna o codigo de todas as linguagens suportadas | Null |
+| `/get_finances` | GET | Retorna o valor da cotação | f: str, t: str |
+| `/` | GET | Redireciona para o repositorio da API no Github | Null |
 
 como parâmetros é possivel utilizar:
 
 | Parâmetro | Tipo de valor | Default | Obrigatório | Descrição |
 | -------- | ------------- | ---------- | --------- | --------- |
 | q | str | null | Sim | Termo utilizado na pesquisa |
-| lang | str | pt | Não | Linguagem da pesquisa |
+| lang | str | pt | Não | Linguagem da pesquisa, só funciona nas rotas *search_all* e*search_video* |
 | max_results | int  | 30 | Não | Limite de resultados |
 | to_iframe | bool | false/0 | Não | Converte o link do youtube para um link pronto para ser usado em um iframe, só funciona na rota *search_video*. |
 | source | str | en | Não | Linguagem original do texto que sera traduzido, só funciona na rota *translate*. |
