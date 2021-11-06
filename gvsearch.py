@@ -122,13 +122,16 @@ def cotacao():
 
     html = requests.get(f"https://www.google.com/finance/quote/{f}-{t}")
     soup = BeautifulSoup(html.text, "html.parser")
-    valor = soup.select('[class="YMlKec fxKbKc"]')
+    valor = soup.select('[class="YMlKec fxKbKc"]')[0].text
+
     try:
-        valor = float(valor[0].text)
-        result = jsonify({"sucess": True, "valor": round(valor, 2)})
-        return result
-    except:
-        return {"error": "Ocorreu um erro"}
+        valor = valor.replace(",", "")
+
+        valor = float(valor)
+        return jsonify({"sucess": True, "valor": round(valor, 2)})
+
+    except Exception as e:
+        return jsonify({"sucess": False, "error": str(e)})
 
 
 @app.route("/")
