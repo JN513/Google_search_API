@@ -1,4 +1,6 @@
-from flask import Flask, json, request, jsonify, redirect
+from flask import Flask, request, jsonify, redirect
+from flask_restful import Api
+from flask_restful_swagger import swagger
 from googlesearch import search
 from bs4 import BeautifulSoup
 from googletrans import Translator, LANGUAGES, LANGCODES
@@ -8,6 +10,7 @@ import requests
 
 app = Flask(__name__)
 CORS(app)
+api = swagger.docs(Api(app), apiVersion="0.1", api_spec_url="/api/spec")
 
 
 @app.route("/search_all", methods=["GET"])
