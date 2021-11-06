@@ -27,6 +27,8 @@ como parâmetros é possivel utilizar:
 | to_iframe | bool | false/0 | Não | Converte o link do youtube para um link pronto para ser usado em um iframe, só funciona na rota *search_video*. |
 | source | str | en | Não | Linguagem original do texto que sera traduzido, só funciona na rota *translate*. |
 | lang | str | pt | Não | Linguagem para qual o texto sera traduzido, só funciona na rota *translate*. |
+| f | str | USD | Não | Moeda base da conversão, só funciona na rota *get_finances* |
+| t | str | BRL | Não | Moeda para qual sera realizado a conversão, só funciona na rota *get_finances* |
 
 
 ## Dependencias
@@ -81,11 +83,17 @@ e a API ira rodar. Caso não queira exportar variaveis de ambiente, utilize:
 
 <https://gvcapi.herokuapp.com/search_video?q=ola>
 
+<https://gvcapi.herokuapp.com/search_video?q=ola&to_iframe=true>
+
 <https://gvcapi.herokuapp.com/search_video?q=python&lang=en?>
 
 <https://gvcapi.herokuapp.com/search_video?q=java&lang=en&max_results=200>
 
-<https://gvcapi.herokuapp.com/get_finances/fr=USD&t=BRL>
+<https://gvcapi.herokuapp.com/get_news>
+
+<https://gvcapi.herokuapp.com/translate?source=en&lang=pt>
+
+<https://gvcapi.herokuapp.com/get_finances/?f=USD&t=BRL>
 
 ## Problemas e sugestões
 
