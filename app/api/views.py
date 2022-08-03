@@ -117,6 +117,9 @@ def cotacao():
     t = request.args.get("t") if request.args.get("t") else "BRL"
     r = int(request.args.get("r")) if request.args.get("r") else 2
 
+    if f == t:
+        return jsonify({"sucess": True, "valor": 1})
+
     html = requests.get(f"https://www.google.com/finance/quote/{f}-{t}")
     soup = BeautifulSoup(html.text, "html.parser")
     valor = soup.select('[class="YMlKec fxKbKc"]')[0].text
