@@ -82,19 +82,19 @@ e a API ira rodar. Caso não queira exportar variaveis de ambiente, utilize:
 
 ## Exemplos de requisições
 
-<https://gvcapi.herokuapp.com/api/search_video?q=ola>
+<https://google-search-api-oficial.herokuapp.com/api/search_video?q=ola>
 
-<https://gvcapi.herokuapp.com/api/search_video?q=ola&to_iframe=true>
+<https://google-search-api-oficial.herokuapp.com/api/search_video?q=ola&to_iframe=true>
 
-<https://gvcapi.herokuapp.com/api/search_video?q=python&lang=en?>
+<https://google-search-api-oficial.herokuapp.com/api/search_video?q=python&lang=en?>
 
-<https://gvcapi.herokuapp.com/api/search_video?q=java&lang=en&max_results=200>
+<https://google-search-api-oficial.herokuapp.com/api/search_video?q=java&lang=en&max_results=200>
 
-<https://gvcapi.herokuapp.com/api/get_news>
+<https://google-search-api-oficial.herokuapp.com/api/get_news>
 
-<https://gvcapi.herokuapp.com/api/translate?source=en&lang=pt>
+<https://google-search-api-oficial.herokuapp.com/api/translate?source=en&lang=pt>
 
-<https://gvcapi.herokuapp.com/api/get_finances/?f=USD&t=BRL>
+<https://google-search-api-oficial.herokuapp.com/api/get_finances/?f=USD&t=BRL>
 
 ## Problemas e sugestões
 
