@@ -35,4 +35,4 @@ sniffio==1.2.0
 soupsieve==2.2.1
 toml==0.10.2
 urllib3==1.26.4
-Werkzeug==1.0.1
+Werkzeug==2.2.3
